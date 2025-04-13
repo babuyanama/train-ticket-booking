@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Available Trains</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Train ID</th>
+                <th>Train Name</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Available Seats</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for train in trains %}
+                <tr>
+                    <td>{{ train.train_id }}</td>
+                    <td>{{ train.train_name }}</td>
+                    <td>{{ train.source }}</td>
+                    <td>{{ train.destination }}</td>
+                    <td>{{ train.available_seats }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="{{ url_for('book') }}">Book a Ticket</a>
+{% endblock %}

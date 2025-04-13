@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome to Railway Reservation System</h1>
+        <p class="lead">Book your train tickets with ease and convenience!</p>
+        <a class="btn btn-primary btn-lg" href="{{ url_for('trains') }}" role="button">View Trains</a>
+    </div>
+{% endblock %}

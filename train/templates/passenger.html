@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Passenger Details</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="pnr" class="form-label">PNR Number</label>
+            <input type="number" class="form-control" id="pnr" name="pnr" required>
+        </div>
+        <button type="submit" class="btn btn-primary">View Details</button>
+    </form>
+    {% if passenger %}
+        <div class="mt-4">
+            <h4>Passenger Information</h4>
+            <p><strong>PNR:</strong> {{ passenger.pnr }}</p>
+            <p><strong>Name:</strong> {{ passenger.name }}</p>
+            <p><strong>Age:</strong> {{ passenger.age }}</p>
+            <p><strong>Gender:</strong> {{ 'Male' if passenger.gender == 'M' else 'Female' }}</p>
+            <p><strong>Train ID:</strong> {{ passenger.train_id }}</p>
+        </div>
+    {% endif %}
+{% endblock %}

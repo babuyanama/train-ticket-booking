@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Book a Ticket</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" id="age" name="age" required>
+        </div>
+        <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <select class="form-select" id="gender" name="gender" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="train_id" class="form-label">Select Train</label>
+            <select class="form-select" id="train_id" name="train_id" required>
+                {% for train in trains %}
+                    <option value="{{ train.train_id }}">{{ train.train_name }} ({{ train.source }} to {{ train.destination }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Book Ticket</button>
+    </form>
+{% endblock %}
